@@ -218,11 +218,10 @@ is tracked for each KEY separately."
 (defun helm-git-files:source (what &optional root repository update-once)
   (let ((name (concat (format "Git %s" (capitalize (format "%s" what)))
                       (or (and repository (format " in %s" repository)) ""))))
-    (helm-build-sync-source name
+    (helm-build-in-buffer-source name
       :init #'helm-git-files:init
       :cleanup #'helm-git-files:cleanup
       :candidates (helm-git-files:candidates-fun what root update-once)
-      :volatile t
       :display-to-real #'helm-git-files:display-to-real
       :action 'helm-type-file-actions)))
 
