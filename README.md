@@ -82,8 +82,9 @@ from several sources, including ones from `helm-git-files.el`.
 
 ### [`helm-ls-git.el`](https://github.com/emacs-helm/helm-ls-git)
 
-It provides a helm source of `git status` but [lacks the ability to
-list files in submodules](https://github.com/emacs-helm/helm-ls-git/issues/19).
+It provides some extra features such as a helm source of `git status`
+but
+[it lacks the ability to list files in submodules](https://github.com/emacs-helm/helm-ls-git/issues/19).
 
 ### [`helm-projectile.el`](https://github.com/bbatsov/helm-projectile)
 
