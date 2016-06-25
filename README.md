@@ -46,7 +46,7 @@ The list of helm sources for submodules can be retrieved by function
 `helm-git-files:submodule-sources`. The function takes one argument,
 which is a list of symbols of source type, `modified`, `untracked` or
 `all`. For example, `(helm-git-files:submodule-sources '(untracked
-all)` returns helm sources for untracked files and all files in the
+all))` returns helm sources for untracked files and all files in the
 git repository of the submodules.
 
 The following example defines a custom helm function to list files
