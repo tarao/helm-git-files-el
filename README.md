@@ -21,7 +21,7 @@ helm-git-files.el --- helm for git files
 ### Install by el-get
 
 1. Setup [el-get](https://github.com/dimitri/el-get)
-2. Put the following code in your Emacs init file (`~/.emacs` or `~/.emacs.d/init.el`).
+2. Put the following code in your Emacs init file (`~/.emacs` or `~/.emacs.d/init.el`)
 
 ```lisp
 (el-get-bundle tarao/helm-git-files-el
@@ -82,8 +82,8 @@ from several sources, including ones from `helm-git-files.el`.
 
 ### [`helm-ls-git.el`](https://github.com/emacs-helm/helm-ls-git)
 
-It provides a helm source of `git status` but lacks the ability to
-list files in submodules.
+It provides a helm source of `git status` but [lacks the ability to
+list files in submodules](https://github.com/emacs-helm/helm-ls-git/issues/19).
 
 ### [`helm-projectile.el`](https://github.com/bbatsov/helm-projectile)
 
