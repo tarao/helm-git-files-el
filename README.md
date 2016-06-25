@@ -88,13 +88,13 @@ but
 
 ### [`helm-projectile.el`](https://github.com/bbatsov/helm-projectile)
 
-It can list files not only in a git repository but any other kind of
-VCS that [Projectile](https://github.com/bbatsov/projectile) supports.
-The list includes files in submodules but the helm source is not
-separated.  The invocation of `git ls-files` seems to be synchronous
-since it is hidden inside the Projectile code.  This may cause a major
-performance issue if you have a project with a large number of
-submodules.
+It can list files not only in a git repository but in any other kind
+of VCS that [Projectile](https://github.com/bbatsov/projectile)
+supports.  The list includes files in submodules but the helm source
+is not separated.  The invocation of `git ls-files` seems to be
+synchronous since it is hidden inside the Projectile code.  This may
+cause a major performance issue if you have a project with a large
+number of submodules.
 
 ## History
 
