@@ -171,8 +171,7 @@ is tracked for each KEY separately."
         (apply 'helm-git-files:ls-async buffer callback
                "--full-name" args)
         (push buffer-name helm-git-files:cached)))
-    (helm-candidate-buffer buffer)
-    (helm-candidates-in-buffer)))
+    (helm-candidate-buffer buffer)))
 
 (defun helm-git-files:sentinel (process event)
   (when (equal event "finished\n")
@@ -209,19 +208,17 @@ is tracked for each KEY separately."
 (defun helm-git-files:cleanup ()
   (setq helm-git-files:cached nil))
 
-(defun helm-git-files:candidates-fun (what &optional root update-once)
-  `(lambda () (helm-git-files:candidates ',what ,root ,update-once)))
-
 (defun helm-git-files:display-to-real (name)
   (expand-file-name name (helm-attr 'default-directory)))
 
 (defun helm-git-files:source (what &optional root repository update-once)
   (let ((name (concat (format "Git %s" (capitalize (format "%s" what)))
                       (or (and repository (format " in %s" repository)) ""))))
-    (helm-build-sync-source name
-      :init #'helm-git-files:init
+    (helm-build-in-buffer-source name
+      :init `(lambda ()
+                (helm-git-files:init)
+                (helm-git-files:candidates ',what ,root ,update-once))
       :cleanup #'helm-git-files:cleanup
-      :candidates (helm-git-files:candidates-fun what root update-once)
       :display-to-real #'helm-git-files:display-to-real
       :action 'helm-type-file-actions)))
 
