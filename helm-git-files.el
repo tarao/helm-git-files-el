@@ -237,7 +237,9 @@ is tracked for each KEY separately."
         (args '("submodule" "--quiet" "foreach" "echo $path")))
     (loop for module in (split-string
                          (helm-git-files:chomp
-                          (apply 'helm-git-files:command-to-string args))
+                          (or (ignore-errors
+                                (apply 'helm-git-files:command-to-string args))
+                              ""))
                          "[\r\n]+")
           if (> (length module) 0)
           collect module)))
